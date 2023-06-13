@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>POPUP</title>
+      <style>
+         .container {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         height: 480px;
+         width: 270px;
+         background-color: none;
+         transform: scale(0.25);
+         }
+         .box1 {
+         width: 944px;
+         height: 343px;
+         background-color: #ffde59;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         border-radius: 30px 30px 0 0;
+         }
+         .box2 {
+         width: 944px;
+         height: 500px;
+         background-color: #f1f2f2;
+         border-radius: 0 0 30px 30px;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         }
+         .Image {
+         position: absolute;
+         object-fit: contain;
+         max-width: 170%;
+         max-height: 170%;
+         top:-400px;
+         left: -100px;
+         }
+         .text1 {
+         width: 565px;
+         height: 92px;
+         border-radius: 10px;
+         font-size: 30px;
+         margin-top: 50px;
+         align-items: center;
+         color: #939598;
+         font-family: "Made Tommy", sans-serif;
+         opacity: 60%;
+         }
+         .text2 {
+         width: 565px;
+         height: 92px;
+         border-radius: 10px;
+         font-size: 30px;
+         margin-top: 50px;
+         align-items: center;
+         color: #939598;
+         font-family: "Made Tommy", sans-serif;
+         opacity: 60%;
+         }
+         .submit {
+         cursor: pointer;
+         width: 300px;
+         height: 100px;
+         border-radius: 10px;
+         border-color: none;
+         background-color: #ffde59;
+         font-size: 40px;
+         margin-top: 50px;
+         margin-left:0px;
+         outline: none;
+         font-weight: 550;
+         font-family: "Made Tommy", sans-serif;
+         }
+         .CYD {
+         text-align: center;
+         align-items: center;
+         font-size: 50pt;
+         font-family: "Made Tommy", sans-serif;
+         font-size: 900;
+         margin-left:-300px;
+         margin-top:150px;
+         }
+         .Note{
+         text-decoration: underline;
+         margin-top: -40px;
+         margin-left: 00px;
+         font-size:20px ;
+         font-family: "Made Tommy", sans-serif;
+         cursor: pointer;
+         }
+         .TC {
+         margin-left: 820px;
+         margin-top: 40px;
+         font-size: 13px;
+         font-family: "Made Tommy", sans-serif;
+         }
+         .LPO {
+         text-align: center;
+         align-items: center;
+         font-family: "Made Tommy", sans-serif;
+         font-weight: 300;
+         font-size: 20px;
+         margin-top: 220px;
+         margin-left:-500px;
+         }
+         /*  @media screen and (max-width: 767px) {
+         .container {
+         height: 100vh;
+         width: 100%;
+         transform: scale(1);
+         }
+         }
+         .box1, .box2 {
+         width: 100
+         } */
+      </style>
+      <script>
+         function claimDiscount() {
+            var cydElement = document.querySelector(".CYD");
+            var lpoElement = document.querySelector(".LPO");
+            var submitButton = document.querySelector(".submit");
+            var text1Input = document.querySelector(".text1");
+            var text2Input = document.querySelector(".text2");
+            var imageElement = document.querySelector(".Image");
+           
+            var name = text1Input.value.trim();
+         if (name === "" || !/^[a-zA-Z]+$/.test(name)) {
+         text1Input.style.outline = "2px solid red"; // Apply red outline to invalid name field
+         return; // Stop further execution of the function
+         } else {
+         text1Input.style.outline = "none"; // Remove red outline for valid name
+         }
+         
+         var mobileNumber = text2Input.value;
+         if (mobileNumber === "" || mobileNumber.length !== 10 || isNaN(mobileNumber)) {
+         text2Input.style.outline = "2px solid red"; // Apply red outline to invalid mobile number field
+         return; // Stop further execution of the function
+         } else {
+         text2Input.style.outline = "none"; // Remove red outline for valid mobile number
+         }
+            
+            cydElement.innerHTML = "Avail Your Promo Code<br>Now!";
+            cydElement.style.marginLeft = "45px";
+            lpoElement.style.display = "none";
+            submitButton.style.width = "400px";
+            submitButton.style.height = "120px";
+            submitButton.style.marginTop = "30px";
+            submitButton.innerText = "DGM100"; 
+            text1Input.style.display = "none";
+            text2Input.style.display = "none";
+            imageElement.style.top = "-300px";
+         
+         }
+         function closePopup() {
+            var popupContainer = document.querySelector(".popup-container");
+            popupContainer.style.display = "none";
+         }
+      </script>
+   </head>
+   <body>
+      <div class="popup-container">
+         <div class="container">
+            <div class="box box1">
+               <img class="Image" src="Icon.png" alt="Image">
+               <p class="CYD" style="font-weight: bold; text-align: center;">Claim your discount now!</p>
+               <p class="LPO">*Limited period offer</p>
+            </div>
+            <div class="box box2">
+               <input type="text" class="text1" placeholder="  Name">
+               <input type="text" class="text2" placeholder="  Mobile Number">
+               <button type="submit" class="submit" onclick="claimDiscount()">Submit</button>
+               <p class="TC">*T&C Apply</p>
+               <p class="Note" onclick="closePopup()">No Thanks</p>
+               </p>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
